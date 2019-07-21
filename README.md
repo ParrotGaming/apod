@@ -1,1 +1,1 @@
-# apod# apod
+Simple Project Using Nasa's apod api
