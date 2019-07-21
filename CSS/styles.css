@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+}
+
+#container{
+    width: 800px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#container > div {
+    margin: auto;
+    margin-top: 35px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+@media all and (max-width:500px) {
+    #container{
+        width: 300px;
+    }
+}
+
+@media all and (max-width:800px) {
+    #container{
+        width: 500px;
+    }
+}
+
+img {
+    max-width: 640px;
+}
+
+iframe{
+    width: 640px;
+    height: 360px;
+}
