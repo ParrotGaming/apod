@@ -1,10 +1,66 @@
-const container = document.getElementById('container')
+const container = document.getElementById('container');
+const btn = document.getElementById('go');
+const calandar = document.getElementById('date');
+const min_date = new Date('1995, 06, 16');
+const today_btn = document.getElementById('today_btn')
+console.log(min_date);
 
-getData().catch(err =>{
+randomDays().catch(err => {
     console.log(err)
-});
+})
 
-async function getData(){
+
+btn.addEventListener('click', function(){
+    let date_val = calandar.value;
+    getData(date_val).catch(err =>{
+        console.log(err)
+    });
+
+})
+
+today_btn.addEventListener('click', function(){
+    let today = new Date();
+    let today_obj = new Date();
+    let year = today_obj.getFullYear();
+    let month = today_obj.getMonth()+ 1;
+    let day = today_obj.getDate();
+    console.log(month)
+    if(month < 10){
+        month = '0' + month;
+    }
+
+    if (day < 10){
+        day = '0' + day;
+    }
+
+    getData(`${year}-${month}-${day}`)
+})
+
+// getData().catch(err =>{
+//     console.log(err)
+// });
+
+async function getData(day){
+
+    let date_obj = new Date(day);
+    if (date_obj < min_date){
+        return;
+    }
+
+    let count = 10;
+    const api_link = `https://api.nasa.gov/planetary/apod?api_key=${config.api_key}&date=${day}`;
+    const response = await fetch(api_link)
+    const data = await response.json();
+    console.log(data);
+
+    // data.forEach(function(day){
+    //     createView(day)
+    // })
+
+    createView(data);
+}
+
+async function randomDays(){
     let count = 10;
     const api_link = `https://api.nasa.gov/planetary/apod?api_key=${config.api_key}&count=${count}`;
     const response = await fetch(api_link)
@@ -12,9 +68,11 @@ async function getData(){
     console.log(data);
 
     data.forEach(function(day){
-        createView(day)
-    })
+         createView(day)
+     })
+
 }
+
 
 function createView(info){
 
@@ -42,5 +100,5 @@ function createView(info){
     explain_el.innerText = info.explanation;
     card.appendChild(explain_el);
 
-    container.appendChild(card);
+    container.prepend(card);
 }
