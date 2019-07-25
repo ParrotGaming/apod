@@ -2,7 +2,19 @@ const container = document.getElementById('container');
 const btn = document.getElementById('go');
 const calandar = document.getElementById('date');
 const min_date = new Date('1995, 06, 16');
-const today_btn = document.getElementById('today_btn')
+const today_btn = document.getElementById('today_btn');
+
+console.log(document.getElementsByName('res'))
+const res_btns = document.getElementsByName('res')
+var res;
+
+res_btns.forEach(function(rad){
+    if (rad.checked){
+        res = rad.value;
+    }
+})
+
+console.log("AAAAAAAA",res)
 console.log(min_date);
 
 randomDays().catch(err => {
