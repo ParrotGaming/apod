@@ -38,7 +38,10 @@ class Day {
     }
 
     let media_cont = document.createElement('div');
-    media_cont.classList.add('modal')
+    //media_cont.classList.add('modal');
+    media_cont.addEventListener('click', function(){
+        alert('hello')
+    })
 
     media_cont.appendChild(media_el);
     card.appendChild(media_cont);
