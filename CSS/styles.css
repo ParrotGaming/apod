@@ -46,6 +46,10 @@ iframe{
     height: 360px;
 }
 
+.round {
+    border-radius: 10px;
+}
+
 /* The Modal (background) */
 .custom_modal {
     display: none; /* Hidden by default */

@@ -41,6 +41,7 @@ class Day {
     }
 
     let media_cont = document.createElement('div');
+    media_el.classList.add('round')
     //media_cont.classList.add('modal');
 
     media_cont.appendChild(media_el);
