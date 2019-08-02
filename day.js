@@ -16,10 +16,13 @@ class Day {
     card.appendChild(date_el);
 
     let media_el;
+    let image_modal;
     if (this.data.media_type === 'video'){
         media_el = document.createElement('iframe');
+        image_modal = document.createElement('iframe')
     }else{
         media_el = document.createElement('img');
+        image_modal = document.createElement('img')
     }
 
     var res;
@@ -39,12 +42,26 @@ class Day {
 
     let media_cont = document.createElement('div');
     //media_cont.classList.add('modal');
-    media_cont.addEventListener('click', function(){
-        alert('hello')
-    })
 
     media_cont.appendChild(media_el);
     card.appendChild(media_cont);
+
+    let modal = document.createElement('div');
+    modal.classList.add('custom_modal');
+    image_modal.classList.add('custom_modal-content');
+    image_modal.setAttribute('src', this.data.url)
+    modal.appendChild(image_modal)
+    card.appendChild(modal)
+
+    media_el.addEventListener('click', function(){
+        modal.style.display = 'block';
+    })
+
+    window.addEventListener('click', function(event){
+        if (event.target === modal) {
+            modal.style.display = "none";
+          }
+    })
 
     let explain_el = document.createElement('p');
     explain_el.innerText = this.data.explanation;
