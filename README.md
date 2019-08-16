@@ -1,1 +1,1 @@
-Simple project using Nasa's apod api.
+Simple project using Nasa's A.P.O.D api.
