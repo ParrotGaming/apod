@@ -110,17 +110,27 @@ iframe{
 
   #date {
       border-radius: 5px;
-      border: 2px solid var(--blue);
+      border: 2px solid gray;
       margin: 5px
   }
 
-  #go, #today_btn{
-      color: black;
-      border: 2px var(--blue) solid;
-      border-radius: 5px;
+  #date:hover {
+    border: 2px var(--blue) solid;
   }
 
-  #go:hover, #today_btn:hover{
-    color: var(--blue);
+  #go, #today_btn {
+      color: #fff;
+      border: 2px grey solid;
+      border-radius: 5px;
+      background-color: grey;
+  }
+
+  #go:hover, #today_btn:hover {
+    color: #fff;
+    border: 2px var(--blue) solid;
+    background: #294fe6;
 }
 
+#stand, #HD {
+    background: var(--blue);
+}
