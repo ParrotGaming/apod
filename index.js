@@ -9,22 +9,9 @@ const res_btns = document.getElementsByName('res')
 
 var days = [];
 
-console.log(min_date);
+calandar.setAttribute('max', today_date());
 
-getData(10).catch(err => {
-    console.log(err)
-})
-
-
-date_btn.addEventListener('click', function(){
-    let date_val = calandar.value;
-    getData(date_val).catch(err =>{
-        console.log(err)
-    });
-
-})
-
-today_btn.addEventListener('click', function(){
+function today_date() {
     let today = new Date();
     let today_obj = new Date();
     let year = today_obj.getFullYear();
@@ -39,7 +26,46 @@ today_btn.addEventListener('click', function(){
         day = '0' + day;
     }
 
-    getData(`${year}-${month}-${day}`)
+    return `${year}-${month}-${day}`
+}
+
+console.log(min_date);
+
+getData(10).catch(err => {
+    console.log(err)
+})
+
+
+date_btn.addEventListener('click', function(){
+    let date_val = calandar.value;
+    if (date_val < min_date || date_val > new Date()){
+        console.log("out of range!!")
+    } else {
+        getData(date_val).catch(err =>{
+            console.log(err)
+        });
+    }
+
+})
+
+today_btn.addEventListener('click', function(){
+    // let today = new Date();
+    // let today_obj = new Date();
+    // let year = today_obj.getFullYear();
+    // let month = today_obj.getMonth()+ 1;
+    // let day = today_obj.getDate();
+    // console.log(month)
+    // if(month < 10){
+    //     month = '0' + month;
+    // }
+
+    // if (day < 10){
+    //     day = '0' + day;
+    // }
+
+
+
+    getData(today_date())
 })
 
 async function getData(arg){
