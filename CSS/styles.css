@@ -16,7 +16,7 @@ body{
     flex-wrap: wrap;
 }
 
-#container > div {
+#container > .card {
     margin: auto;
     margin-top: 35px;
 }
@@ -53,10 +53,13 @@ iframe{
 /* The Modal (background) */
 .custom_modal {
     display: none; /* Hidden by default */
+    margin: auto;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
+    bottom: 0;
+    right: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -66,14 +69,16 @@ iframe{
   
   /* Modal Content/Box */
   .custom_modal-content {
-    display: flex;
+    /* display: flex; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: #fefefe;
-    margin: 10vw;
+    margin: auto;
     padding: 5px;
     border-radius: 5px;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
     width: 80%; /* Could be more or less, depending on screen size */
   }
   
@@ -91,3 +96,10 @@ iframe{
     text-decoration: none;
     cursor: pointer;
   }
+
+  .card {
+      display: flex;
+      align-items: center;
+      border: none;
+  }
+

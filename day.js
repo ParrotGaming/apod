@@ -7,6 +7,8 @@ class Day {
 
     let card = document.createElement('div');
 
+    card.classList.add('card')
+
     let title_el = document.createElement('h1');
     title_el.innerText = this.data.title;
     card.appendChild(title_el)
