@@ -112,6 +112,10 @@ async function getData(arg){
         div_el.appendChild(error);
         div_el.appendChild(reload_btn);
 
+        reload_btn.addEventListener("click", function (event) {
+            document.location.reload(true)
+        })
+
         console.log("Houston, We Have A Problem")
     }
 }
