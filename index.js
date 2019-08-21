@@ -82,20 +82,36 @@ async function getData(arg){
     
     var response = await fetch(api_link)
     var data = await response.json();
-    console.log(data);
+    // console.log(response)
+    // console.log(data);
 
-    if (!(Array.isArray(data))){
-        data = [data];
+    if (response.status === 200){
+        if (!(Array.isArray(data))){
+            data = [data];
+        }
+
+        data.forEach(function(day){
+            //  createView(day)
+            days.push(new Day(day));
+        })
+
+        // console.log(days);
+        days.forEach(function(day){
+            day.createView(container, res_btns)
+        })
+    } else {
+        let reload_btn = document.createElement('button');
+        let div_el = document.createElement('div');
+        reload_btn.innerText = "Try Again";
+        reload_btn.classList.add('btn');
+        reload_btn.classList.add('btn-outline-primary');
+        reload_btn.classList.add('reload_btn');
+        let error = document.createElement('h1');
+        error.innerText = "Houston, we've had a problem.";
+        container.appendChild(div_el);
+        div_el.appendChild(error);
+        div_el.appendChild(reload_btn);
+
+        console.log("Houston, We Have A Problem")
     }
-
-    data.forEach(function(day){
-        //  createView(day)
-        days.push(new Day(day));
-     })
-
-     console.log(days);
-     days.forEach(function(day){
-         day.createView(container, res_btns)
-     })
-
 }

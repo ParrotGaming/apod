@@ -138,3 +138,8 @@ iframe{
 .btn-group{ 
     margin-left: 1.5rem;
 }
+
+.reload_btn {
+    display: flex;
+    margin: auto;
+}
