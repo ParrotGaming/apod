@@ -36,8 +36,9 @@ getData(10).catch(err => {
 })
 
 
-date_btn.addEventListener('click', function(){
+date_btn.addEventListener('click', function(event){
     let date_val = calandar.value;
+    event.preventDefault()
     if (date_val < min_date || date_val > new Date()){
         console.log("out of range!!")
     } else {
@@ -48,7 +49,7 @@ date_btn.addEventListener('click', function(){
 
 })
 
-today_btn.addEventListener('click', function(){
+today_btn.addEventListener('click', function(event){
     // let today = new Date();
     // let today_obj = new Date();
     // let year = today_obj.getFullYear();
@@ -63,7 +64,7 @@ today_btn.addEventListener('click', function(){
     //     day = '0' + day;
     // }
 
-
+    event.preventDefault()
 
     getData(today_date())
 })
