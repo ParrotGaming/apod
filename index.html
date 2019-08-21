@@ -13,18 +13,35 @@
 
     <div id="modal_custom"></div>
 
-    <div id="menu">
-        <input type="date" id="date" min="1995-06-16">
-        <button id="go">Select Date</button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">APOD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="today_btn">Today's APOD</button>
+            </li>
+            <li class="nav-item">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label for="stand" class="btn btn-secondary">
+                    <input type="radio" autocomplete="off"> SD
+                    </label>
+                    <label for="HD" class="btn btn-secondary">
+                    <input type="radio" autocomplete="off" checked> HD
+                    </label>
+                </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input type="date" id="date" min="1995-06-16">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="go">Select Date</button>
+          </form>
+        </div>
+      </nav>
 
-        <button id="today_btn">Today's Apod</button>
-
-        <label for="stand">Standard Definition</label>
-        <input type="radio" name="res" value="standard" id="stand">
-
-        <label for="HD">High Definition</label>
-        <input type="radio" name="res" value="HD" id="HD" checked>
-    </div>
 
     <div id="container"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

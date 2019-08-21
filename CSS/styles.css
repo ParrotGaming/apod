@@ -1,3 +1,7 @@
+:root{
+    --blue: #294fe6;
+}
+
 *{
     margin: 0;
     box-sizing: border-box;
@@ -99,7 +103,38 @@ iframe{
 
   .card {
       display: flex;
+      flex-direction: column;
       align-items: center;
       border: none;
   }
 
+  #date {
+      border-radius: 5px;
+      border: 2px solid gray;
+      margin: 5px
+  }
+
+  #date:hover {
+    border: 2px var(--blue) solid;
+  }
+
+  #go, #today_btn {
+      color: #fff;
+      border: 2px grey solid;
+      border-radius: 5px;
+      background-color: grey;
+  }
+
+  #go:hover, #today_btn:hover {
+    color: #fff;
+    border: 2px var(--blue) solid;
+    background: #294fe6;
+}
+
+#stand, #HD {
+    margin: 5px;
+}
+
+.btn-group{ 
+    margin-left: 1.5rem;
+}
